@@ -1,0 +1,116 @@
+{
+    "description": "Config for phase segmentation of FluidFlower International Benchmark runs C1-5.",
+
+    "physical_asset": {
+        "dimensions": {"width": 2.8, "height": 1.5},
+        "parameters": {"porosity": 0.44},
+        "volumes_path": "../cache/volumes.npy"
+    },
+
+    "drift": {
+        "roi": [[1050, 2630], [1340, 2920]]
+    },
+
+    "color": {
+        "active": true,
+        "roi": [[377, 502], [560, 511], [563, 250], [380, 241]]
+    },
+
+    "curvature": {
+        "init": {
+            "horizontal_bulge": 5e-10,
+            "horizontal_center_offset": 0,
+            "vertical_bulge": 0,
+            "vertical_center_offset": 0
+        },
+
+        "crop": {
+            "pts_src": [[28, 30], [41, 4383], [7917, 4371], [7917, 19]],
+            "width": 2.8,
+            "height": 1.5
+        },
+
+        "bulge": {
+            "horizontal_bulge": -0.0,
+            "horizontal_center_offset": 0,
+            "vertical_bulge": -4.06061733411027e-09,
+            "vertical_center_offset": -8
+        },
+
+        "stretch": {
+            "horizontal_stretch": -1.7060115267192474e-09,
+            "horizontal_center_offset": -286,
+            "vertical_stretch": 3.2177888435429053e-09,
+            "vertical_center_offset": 702
+        },
+
+        "use_cache": true
+    },
+
+
+    "segmentation": {
+        "labels_path": "../cache/labels_coarse.npy",
+        "water": [0],
+        "esf": [1,12,13],
+        "c": [2,3,4]
+    },
+
+    "co2": {
+        "cleaning_filter": "cache/cleaning_filter_negative_key.npy",
+
+        "color": "negative-key",
+
+        "restoration resize": 0.5,
+        "restoration smoothing method": "isotropic bregman",
+        "restoration smoothing weight": 0.1,
+        "restoration smoothing eps": 1e-4,
+        "restoration smoothing max_num_iter": 200,
+
+        "prior threshold value": [0.2, 0.04, 0.05, 0.04, 0.05, 0.06, 0.05, 0.04, 0.07, 0.07, 0.11, 0.075, 0.05, 0.05, 0.08],
+
+        "prior resize": 0.5,
+
+        "prior smoothing method": "isotropic bregman",
+        "prior smoothing weight": 0.05,
+        "prior smoothing eps": 1e-4,
+        "prior smoothing max_num_iter": 200,
+
+        "posterior": true,
+        "posterior criterion": "value",
+        "posterior threshold": 0.1,
+
+        "verbosity": 0
+    },
+
+    "co2(g)": {
+        "cleaning_filter": "cache/cleaning_filter_blue.npy",
+
+        "color": "blue",
+
+        "restoration resize x": 0.25,
+        "restoration smoothing method": "isotropic bregman",
+        "restoration smoothing weight": 0.1,
+        "restoration smoothing eps": 1e-4,
+        "restoration smoothing max_num_iter": 100,
+
+        "prior threshold value": [0.2, 0.2, 0.04, 0.2, 0.04, 0.06, 0.2, 0.02, 0.2, 0.2, 0.2, 0.2, 0.2, 0.2, 0.07], 
+
+        "prior remove small objects size": 1000,
+        "prior fill holes size": 1000,
+
+        "prior resize x": 0.5,
+
+        "prior smoothing method": "isotropic bregman",
+        "prior smoothing weight": 0.1,
+        "prior smoothing eps": 1e-4,
+        "prior smoothing max_num_iter": 100,
+
+        "posterior": true,
+        "posterior criterion": "value/value extra color",
+        "posterior extra color": "red+green",
+        "posterior threshold": [0.09, 0.35],
+
+        "verbosity": 0
+    }
+
+}
