@@ -1,5 +1,5 @@
 # fluidflower_benchmark_image_analysis
-DarSIA image analysis if FluidFlower International Benchmark dataset.
+DarSIA image analysis of FluidFlower International Benchmark dataset.
 
 
 A. Preliminaries:
