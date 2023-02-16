@@ -1,0 +1,57 @@
+{
+  "template/instructions for each run": {
+    "images": "Specify the location of the main folder containing the subfolders for all 5 runs.",
+    "file ending": "Specify the file type of the images '*.TIF'",
+    "number baseline images": "Specify the number of baseline images provided",
+    "config": "Specify the path to the config file to be used for the segmentation",
+    "results": "Specify the location where the results shall be stored"
+  },
+
+  "NOTE": "Each run is analysed sperately, but the config file is the same for all",
+
+  "main": {
+    "instruction": "specify a folder for collecting general results",
+    "results": "TODO"
+  },
+
+  "c1": {
+    "images": "TODO",
+    "file ending": "*.TIF",
+    "number baseline images": 10,
+    "config": "config.json",
+    "results": "TODO"
+  },
+
+  "c2": {
+    "images": "/media/jakub/Elements/Jakub/benchmark/data/large_rig/zenodo/c2",
+    "images": "TODO",
+    "file ending": "*.TIF",
+    "number baseline images": 10,
+    "config": "config.json",
+    "results": "TODO"
+  },
+
+  "c3": {
+    "images": "TODO",
+    "file ending": "*.TIF",
+    "number baseline images": 10,
+    "config": "config.json",
+    "results": "TODO"
+  },
+
+  "c4": {
+    "images": "TODO",
+    "file ending": "*.TIF",
+    "number baseline images": 10,
+    "config": "config.json",
+    "results": "TODO"
+  },
+
+  "c5": {
+    "images": "TODO",
+    "file ending": "*.TIF",
+    "number baseline images": 10,
+    "config": "config.json",
+    "results": "TODO"
+  }
+}
