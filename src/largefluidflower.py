@@ -1,6 +1,8 @@
 """
-Module containing the general setup for the large fluidflower rig.
-Includes segmentation and depth map.
+Module containing the general setup for the large fluidflower rig
+with properties of the Benchmark geometry. Includes segmentation
+and depth map.
+
 """
 from pathlib import Path
 from typing import Union
@@ -77,29 +79,6 @@ class LargeFluidFlower(FluidFlowerRig):
 
         # Identify C layer
         self.c_sand = self._labels_to_mask(self.config["segmentation"]["c"])
-
-        # TODO rm
-        # self.component_groups = [[1,10,11], [2,3,4]]
-
-        # self.label_reduced = np.ones_like(self.labels)
-        # self.label_reduced[self.water] = 0
-        # self.label_reduced[self.esf_sand] = 1
-        # self.label_reduced[self.c_sand] = 2
-
-        ## Create new labeled image
-        # self.labels = np.zeros(labels.shape[:2], dtype=np.uint8)
-        # self.labels_legend = {
-        #    "water": 0,
-        #    "esf_sand": 1,
-        #    "c_sand": 2,
-        #    "rest": 3,
-        # }
-        ## Initiate all elements with the default parameter
-        # self.labels[:, :] = self.labels_legend["rest"]
-        ## Overwrite all specific segments
-        # self.labels[self.water] = self.labels_legend["water"]
-        # self.labels[self.esf_sand] = self.labels_legend["esf_sand"]
-        # self.labels[self.c_sand] = self.labels_legend["c_sand"]
 
     def _determine_effective_volumes(self) -> None:
         """
