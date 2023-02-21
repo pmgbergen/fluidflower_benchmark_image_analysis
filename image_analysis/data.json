@@ -23,7 +23,6 @@
   },
 
   "c2": {
-    "images": "/media/jakub/Elements/Jakub/benchmark/data/large_rig/zenodo/c2",
     "images": "TODO",
     "file ending": "*.TIF",
     "number baseline images": 10,
