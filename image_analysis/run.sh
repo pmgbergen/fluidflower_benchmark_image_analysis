@@ -7,7 +7,7 @@ python geometry_segmentation_fine.py
 
 # Run segmentation for all experimental runs C1-5
 cd ../phase_segmentation
-python phase_segmentation.py
+python segmentation.py
 
 # Extract the spatial concentration and saturation maps,
 # total mass etc. for all runs, based on the phase
@@ -15,7 +15,7 @@ python phase_segmentation.py
 # The outcome provides means to determine qty 2, 3, 4, 6
 # in the sparse data analysis.
 cd ../mass_analysis
-python concentration_analysis.py
+python mass_analysis.py
 
 # Run mixing analysis, required to determine qty 5
 # in the sparse data analysis.
