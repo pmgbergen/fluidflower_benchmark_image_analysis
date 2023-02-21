@@ -24,4 +24,4 @@ for run in ["c1", "c2", "c3", "c4", "c5"]:
     )
 
     # Perform standardized CO2 segmentation on all images
-    co2_analysis.batch_segmentation(images, plot_contours=False)
+    co2_analysis.batch_analysis(images, plot_contours=False)
