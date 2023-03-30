@@ -7,7 +7,7 @@ from pathlib import Path
 from typing import Union
 
 import numpy as np
-from benchmark.rigs.largefluidflower import LargeFluidFlower
+from .largefluidflower import LargeFluidFlower
 from darsia.presets.fluidflower.fluidflowerco2analysis import \
     FluidFlowerCO2Analysis
 
