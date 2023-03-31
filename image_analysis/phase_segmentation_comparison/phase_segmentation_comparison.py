@@ -11,7 +11,6 @@ import numpy as np
 import pandas as pd
 from src.io import read_paths_from_user_data, read_time_from_path
 from src.largerigco2analysis import LargeRigCO2Analysis
-from src.utils import interpolate_map
 
 from whole_image_analysis import whole_img
 
@@ -64,11 +63,10 @@ for run in ["c1", "c2", "c3", "c4"]:
 # Need a darsia.Image with coordinate system. Fetch the first segmentation in C1.
 # The data is not relevant
 base_path = segmentations["c1"][0]
-base = darsia.Image(
+base = darsia.ScalarImage(
     np.load(base_path),
     width=2.8,
     height=1.5,
-    color_space="GRAY",
 )
 base_shape = base.img.shape[:2]
 base_coordinate_system = base.coordinatesystem
@@ -89,7 +87,9 @@ else:
     )
 
     # Interpolate data
-    depth = interpolate_map(depth_measurements, base_shape, base_coordinate_system)
+    depth = darsia.interpolate_measurements(
+        depth_measurements, base_shape, base_coordinate_system
+    )
 
     # Store in cache
     cache.parents[0].mkdir(parents=True, exist_ok=True)

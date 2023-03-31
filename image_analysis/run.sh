@@ -34,8 +34,8 @@ python mixing_analysis_post.py
 # Count fingers and the length of the phase segmentation
 # python finger_analysis/finger_analysis.py
 # cd finger_analysis
-# ./run_finger_analysis.sh
+# ./run.sh
 
 # Quantify the sand settling between the runs.
-# cd ../sand_settling
+# cd ../sand_settling_analysis
 # ./run.sh

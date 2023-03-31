@@ -13,7 +13,6 @@ into water, CO2(w) and CO2(g), identifies
 import json
 from pathlib import Path
 
-import matplotlib.pyplot as plt
 import numpy as np
 from src.io import read_paths_from_user_data
 

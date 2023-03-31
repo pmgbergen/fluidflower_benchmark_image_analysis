@@ -10,7 +10,6 @@ from scipy import interpolate
 from skimage.measure import label, regionprops
 from src.io import (concentration_to_csv, read_paths_from_user_data,
                     read_time_from_path, sg_to_csv, sw_to_csv)
-from src.utils import interpolate_map
 
 from injection_protocol import total_mass_co2_port1, total_mass_co2_port2
 
@@ -63,7 +62,9 @@ else:
     )
 
     # Interpolate data
-    depth = interpolate_map(depth_measurements, base_shape, base_coordinate_system)
+    depth = darsia.interpolate_measurements(
+        depth_measurements, base_shape, base_coordinate_system
+    )
 
     # Store in cache
     cache.parents[0].mkdir(parents=True, exist_ok=True)

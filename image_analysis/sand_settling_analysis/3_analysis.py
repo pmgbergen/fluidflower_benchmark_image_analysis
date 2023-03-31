@@ -95,7 +95,7 @@ elif comparison == "c1_vs_c5":
 # Define multilevel config
 config_image_registration = {
     # Define hierarchy of patches
-    "N_patches": [[32, 16], [200, 100]],
+    "N_patches": [[16, 32], [100, 200]],
     # Define a relative overlap, this makes it often slightly
     # easier for the feature detection.
     # "rel_overlap": 0.1,
@@ -106,9 +106,10 @@ config_image_registration = {
     "max_features": 200,
     "tol": 0.05,
     "verbosity": 0,
+    "mask": mask_dst,
 }
 image_registration = darsia.ImageRegistration(
-    img_dst=img_dst, mask_dst=mask_dst, **config_image_registration
+    img_dst=img_dst, **config_image_registration
 )
 
 # Determine the effective deformation

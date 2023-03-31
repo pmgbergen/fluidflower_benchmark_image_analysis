@@ -51,9 +51,9 @@ class LargeFluidFlower(FluidFlowerRig):
         self.box_C = np.array([[1.1, 0.4], [2.6, 0.1]])
 
         # Box A, B, C in terms of pixels, adapted to the size of the base image
-        self.box_A_roi = self.base.coordinatesystem.coordinateToPixel(self.box_A)
-        self.box_B_roi = self.base.coordinatesystem.coordinateToPixel(self.box_B)
-        self.box_C_roi = self.base.coordinatesystem.coordinateToPixel(self.box_C)
+        self.box_A_roi = self.base.coordinatesystem.voxel(self.box_A)
+        self.box_B_roi = self.base.coordinatesystem.voxel(self.box_B)
+        self.box_C_roi = self.base.coordinatesystem.voxel(self.box_C)
 
         # Boolean masks for boxes A, B, C, adapted to the size of the base image
         self.mask_box_A = np.zeros(self.base.img.shape[:2], dtype=bool)
@@ -102,7 +102,7 @@ class LargeFluidFlower(FluidFlowerRig):
             pixel_vector = np.transpose(
                 np.vstack((np.ravel(Y_pixel), np.ravel(X_pixel)))
             )
-            coords_vector = self.base.coordinatesystem.pixelToCoordinate(pixel_vector)
+            coords_vector = self.base.coordinatesystem.coordinate_vector(pixel_vector)
 
             # Fetch physical dimensions
             width = self.config["physical_asset"]["dimensions"]["width"]
@@ -260,8 +260,6 @@ class LargeFluidFlower(FluidFlowerRig):
                 ]
             )
 
-            # TODO double check the measurements with Benyamine.
-
             # Correct for thickness of measurement equipment
             depth_measurements -= 1.5
 
@@ -284,8 +282,8 @@ class LargeFluidFlower(FluidFlowerRig):
             depth_vector = depth_interpolator(coords_vector)
             depth = depth_vector.reshape((Ny, Nx))
 
-            # TODO actually heterogeneous (though with very little differences)
             # Porosity
+            # NOTE actually heterogeneous (though with very little differences)
             porosity = self.config["physical_asset"]["parameters"]["porosity"]
 
             # Compute effective volume per porous voxel

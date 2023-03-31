@@ -83,8 +83,8 @@ for run in ["c1", "c2", "c3", "c4", "c5"]:
         concentration_gradient = np.gradient(concentration.img)
 
         # Need to scale with physical dimensions
-        concentration_gradient[0] /= -concentration.dy
-        concentration_gradient[1] /= concentration.dx
+        concentration_gradient[0] /= -concentration.voxel_size[0]
+        concentration_gradient[1] /= concentration.voxel_size[1]
 
         # Build the L1 norm of the gradient.
         l1_norm_concentration_gradient = np.sqrt(
@@ -103,7 +103,7 @@ for run in ["c1", "c2", "c3", "c4", "c5"]:
         l1_integral_box_C = l1_norm_concentration_gradient[mask]
 
         # Compute the integral
-        qty_5 = concentration.dx * concentration.dy * np.sum(l1_integral_box_C)
+        qty_5 = np.prod(concentration.voxel_size) * np.sum(l1_integral_box_C)
 
         concentration_gradient_integral.append(qty_5)
         print(f"{run}, timestep {i}, Qty 5: {qty_5}")
